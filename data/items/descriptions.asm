@@ -350,7 +350,7 @@ ThunderStoneDesc:
 WaterStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
-	
+
 PocketPCDesc:
 	db   "Access the PC"
 	next "right here!@"
@@ -469,7 +469,7 @@ ItemfinderDesc:
 
 ExpShareDesc:
 	db   "Shares battle EXP."
-	next "Points. (HOLD)@"
+	next "Points.@"
 
 OldRodDesc:
 	db   "Use by water to"
