@@ -34,7 +34,7 @@ CheckEnabledMapEventsBit5:
 	ld hl, wEnabledPlayerEvents
 	bit 5, [hl]
 	ret
-	
+
 EnableWildEncounters:
 	ld hl, wEnabledPlayerEvents
 	set 4, [hl]
@@ -898,8 +898,17 @@ DoRepelStep:
 	ld [wRepelEffect], a
 	ret nz
 
+	ld a, [wRepelType]
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+
 	ld a, BANK(RepelWoreOffScript)
 	ld hl, RepelWoreOffScript
+	jr nc, .got_script
+	ld a, BANK(UseAnotherRepelScript)
+	ld hl, UseAnotherRepelScript
+.got_script
 	call CallScript
 	scf
 	ret
