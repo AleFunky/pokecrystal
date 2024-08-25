@@ -69,7 +69,7 @@ MrPokemonsHouse_MrPokemonScript:
 	writetext MrPokemonText_GimmeTheScale
 	yesorno
 	iffalse .refused
-	verbosegiveitem EXP_SHARE
+	verbosegiveitem MASTER_BALL
 	iffalse .full
 	takeitem RED_SCALE
 	sjump .AlwaysNewDiscoveries

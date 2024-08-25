@@ -8,7 +8,25 @@ VioletKylesHouse_MapScripts:
 	def_callbacks
 
 VioletKylesHousePokefanMScript:
-	jumptextfaceplayer VioletKylesHousePokefanMText
+	faceplayer
+	checkflag ENGINE_HAS_EXP_SHARE
+	setflag ENGINE_HAS_EXP_SHARE
+	iftrue .HasItem
+	opentext
+	writetext VioletKylesHousePokefanMText
+	promptbutton
+	verbosegiveitem EXP_SHARE
+	writetext VioletKylesHousePokefanMTextGiveXPShare
+	waitbutton
+	closetext
+	end
+
+.HasItem:
+	opentext
+	writetext VioletKylesHousePokefanMTextNoXPShare
+	waitbutton
+	closetext
+	end
 
 Kyle:
 	faceplayer
@@ -28,7 +46,32 @@ VioletKylesHousePokefanMText:
 
 	para "BADGE, they may"
 	line "disobey you."
+
+	para "By the way, I"
+	line "have something for"
+	cont "you."
 	done
+
+VioletKylesHousePokefanMTextNoXPShare:
+	text "A #MON you get"
+	line "in a trade grows"
+	cont "quickly."
+
+	para "But if you don't"
+	line "have the right GYM"
+
+	para "BADGE, they may"
+	line "disobey you."
+	done
+
+VioletKylesHousePokefanMTextGiveXPShare:
+	text "This is the XP"
+	line "share, it makes"
+	cont "all your Pokémon "
+
+	cont "get XP."
+	done
+
 
 VioletKylesHouse_MapEvents:
 	db 0, 0 ; filler
