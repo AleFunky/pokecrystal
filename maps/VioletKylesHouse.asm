@@ -65,11 +65,12 @@ VioletKylesHousePokefanMTextNoXPShare:
 	done
 
 VioletKylesHousePokefanMTextGiveXPShare:
-	text "This is the XP"
-	line "share, it makes"
-	cont "all your Pokémon "
+	text "This is the EXP"
+	line "Share, it makes"
+	cont "all your Pokémon"
 
-	cont "get XP."
+	line "get experience"
+	cont "points."
 	done
 
 
