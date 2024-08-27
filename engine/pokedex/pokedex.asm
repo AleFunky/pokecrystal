@@ -40,6 +40,7 @@ Pokedex:
 	push af
 	ld a, $1
 	ldh [hInMenu], a
+	ld [wOnPokedex], a
 
 	xor a
 	ldh [hMapAnims], a
@@ -81,6 +82,8 @@ Pokedex:
 	ldh [hWX], a
 	ld a, h
 	ldh [hWY], a
+	ld a, 0
+	ld [wOnPokedex], a
 	ret
 
 InitPokedex:

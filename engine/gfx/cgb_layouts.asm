@@ -193,13 +193,19 @@ _CGB_PokegearPals:
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 
+	ld a, [wOnPokedex]
+	or a				; is 0
+	jr z, .noPokedex
+
 	hlcoord 18, 16, wAttrmap
 	ld bc, 1 ; 1 tile
 	ld a, 0 ; palette 0
-	set 5, a ; flip on y axis
+	set 5, a ; flip on x axis
 	call ByteFill
 
 	call ApplyAttrmap
+
+.noPokedex
 	call ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a

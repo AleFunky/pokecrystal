@@ -136,7 +136,7 @@ wMapTimeOfDay:: db
 wPrinterConnectionOpen:: db
 wPrinterOpcode:: db
 
-	ds 1
+wOnPokedex:: db
 
 wDisableTextAcceleration:: db
 wPrevLandmark:: db
@@ -816,7 +816,7 @@ wDiscardPileEnd::
 
 ; beta poker game
 wBetaPokerSGBPals:: dw
-	ds 1
+ds 1
 wBetaPokerSGBAttr:: db
 wBetaPokerSGBCol:: db
 wBetaPokerSGBRow:: db
