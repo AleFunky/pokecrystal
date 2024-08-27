@@ -48,12 +48,15 @@ CheckBreedmonCompatibility:
 	ld a, [wBreedMon2Species]
 	cp b
 	jr nz, .done
-	jr .compute
+	ld c, 255	; ditto
+	jr .done
 
 .ditto1
 	ld a, [wBreedMon2Species]
 	cp b
 	jr z, .done
+	ld c, 255   ; ditto
+	jr .done
 
 .compute
 	call .CheckDVs

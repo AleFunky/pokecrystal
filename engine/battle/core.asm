@@ -2212,13 +2212,11 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	push de
 	call GiveExperiencePoints
 	pop de
-	; If Exp. Share is ON, give 50% EXP to non-participants
+	; If Exp. Share is ON, give 100% EXP to non-participants
 	ld a, [wExpShareToggle]
 	and a
 	ret z
 	ld hl, wEnemyMonBaseExp
-	srl [hl]
-
 	ld a, [wBattleParticipantsNotFainted]
 	push af
 	ld a, d
