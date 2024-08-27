@@ -10,7 +10,7 @@ DefaultOptions:
 ; wGBPrinterBrightness: normal
 	db GBPRINTER_NORMAL
 ; wOptions2: menu account on
-	db 1 << MENU_ACCOUNT
+	db 1 << MENU_CLOCK
 
 	db $00
 	db $00
