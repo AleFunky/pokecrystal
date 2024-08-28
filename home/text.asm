@@ -439,13 +439,13 @@ SixDotsCharText:: db "……@"
 EnemyText::       db "Enemy @"
 PlacePKMNText::   db "<PK><MN>@"
 PlacePOKEText::   db "<PO><KE>@"
-String_Space::    db " @"
-; These strings have been dummied out.
+String_Space::	  db " "
 PlaceJPRouteText::
 PlaceWatashiText::
-PlaceKokoWaText:: db "@"
-KunSuffixText::   db "@"
+PlaceKokoWaText:: 
+KunSuffixText::   
 ChanSuffixText::  db "@"
+; These strings have been dummied out.
 
 NextLineChar::
 	pop hl
@@ -547,9 +547,16 @@ _ContText::
 	ld a, [wLinkMode]
 	or a
 	call z, UnloadBlinkingCursor
-	; fallthrough
+	jr _ContTextNoPause.not_instant
 
 _ContTextNoPause::
+	ld a, [wOptions]
+	and TEXT_DELAY_MASK
+	cp TEXT_DELAY_FAST
+	jr nz, .not_instant
+	ld c, 15
+	call DelayFrames
+.not_instant
 	push de
 	call TextScroll
 	call TextScroll
