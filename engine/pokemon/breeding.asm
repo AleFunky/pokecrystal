@@ -1,4 +1,20 @@
+
+
 CheckBreedmonCompatibility:
+	ld hl, DITTO
+	call GetPokemonIDFromIndex
+	ld b, a
+	ld c, $0
+	ld a, [wBreedMon1Species]
+	cp b
+	jr z, .isDitto
+	ld a, [wBreedMon2Species]
+	cp b
+	jr nz, .notDitto
+.isDitto:
+	ld c, 254	; ditto
+	jp .done
+.notDitto:
 	call .CheckBreedingGroupCompatibility
 	ld c, $0
 	jp nc, .done
@@ -54,7 +70,7 @@ CheckBreedmonCompatibility:
 .ditto1
 	ld a, [wBreedMon2Species]
 	cp b
-	jr z, .done
+	jr nz, .done
 	ld c, 255   ; ditto
 	jr .done
 
